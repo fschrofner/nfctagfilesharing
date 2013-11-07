@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="at.fhhgb.mc.nfctagfilesharing"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/nfc_tag_file_sharing_icon_provisional"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" android:name="AppObject">
+        <activity
+            android:name="at.fhhgb.mc.nfctagfilesharing.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="at.fhhgb.mc.nfctagfilesharing.NfcWriterActivity"
+            android:label="@string/title_activity_nfc_writer" >
+        </activity>
+        <activity
+            android:name="at.fhhgb.mc.nfctagfilesharing.NfcReaderActivity"
+            android:label="@string/title_activity_nfc_reader" >
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <data android:mimeType="application/at.fhhgb.mc.nfctagfilesharing" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dropbox.client2.android.AuthActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask" >
+            <intent-filter>
+
+                <!-- Change this to be db- followed by your app key -->
+                <data android:scheme="db-1bi36u1lx0ncffz" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="at.fhhgb.mc.nfctagfilesharing.DropBoxActivity"
+            android:label="@string/title_activity_drop_box" >
+        </activity>
+        <activity
+            android:name="at.fhhgb.mc.nfctagfilesharing.AboutActivity"
+            android:label="@string/title_activity_about" >
+        </activity>
+    </application>
+
+</manifest>
