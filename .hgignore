@@ -1,0 +1,8 @@
+./src/gen/*
+./src/bin/classes/*
+.classpath
+.project
+.settings
+./src/.settings
+./src/.classpath
+./src/.project
